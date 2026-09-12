@@ -2,8 +2,9 @@ import express from 'express'
 import { buscarPacientes } from './DAO/paciente/buscar_paciente.js'
 import { buscarEspecialidades, buscarEspecialidade } from './DAO/especialidade/buscar_especialidade.js'
 import { buscarAgendamentos } from './DAO/agendamento/buscar_agendamento.js'
-import { buscarMedico,buscarMedicos} from './DAO/medico/buscar_medico.js'
-import { buscarConsulta,BuscarConsultas } from './DAO/consulta/buscar_consulta.js'
+import { buscarMedico, buscarMedicos } from './DAO/medico/buscar_medico.js'
+import { buscarTabela, buscarTabelas } from "./DAO/tabela/buscar_tabela.js";
+import { buscarConsulta, BuscarConsultas } from './DAO/consulta/buscar_consulta.js'
 const app = express()
 app.use(express.json())
 
@@ -13,9 +14,9 @@ app.get('/ola', (req, res) => {
 })
 
 app.get('/paciente', async (req, res) => {
-  let paciente = await buscarPacientes()
- 
-  res.json(paciente)
+    let paciente = await buscarPacientes()
+
+    res.json(paciente)
 })
 //especialidades
 app.get('/especialidade', async (req, res) => {
@@ -50,7 +51,12 @@ app.get('/consulta', async (req, res) => {
 })
 
 
+app.get("/consulta_Tabelas", async (req, res) => {
+    let tabela = await buscarTabelas();
+    res.json(tabela);
+});
+
 // Inicialização do Servidor
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
+    console.log('Server is running on http://localhost:3000')
 })

@@ -31,4 +31,4 @@ async function buscarConsulta(codigo){
       }
 }
 
-export {buscarConsulta, buscarConsultas}
+export {buscarConsulta, buscarConsultas};

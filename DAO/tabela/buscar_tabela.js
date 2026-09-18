@@ -2,7 +2,7 @@ import {conexao} from '../conexao.js'
 
 
 async function buscarTabelas(){
-  console.log('DAO de tbl_paciente')
+  console.log('DAO de TABELAS')
     const sql = `CALL printarTabelas();`
     
     const conn = await conexao()

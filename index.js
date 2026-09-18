@@ -1,10 +1,10 @@
 import express from 'express'
 import { buscarPacientes } from './DAO/paciente/buscar_paciente.js'
 import { buscarEspecialidades, buscarEspecialidade } from './DAO/especialidade/buscar_especialidade.js'
-import { buscarAgendamentos } from './DAO/agendamento/buscar_agendamento.js'
-import { buscarMedico, buscarMedicos } from './DAO/medico/buscar_medico.js'
-import { buscarTabela, buscarTabelas } from "./DAO/tabela/buscar_tabela.js";
-import { buscarConsulta, BuscarConsultas } from './DAO/consulta/buscar_consulta.js'
+import { buscarAgendamentos,buscarAgendamento } from './DAO/agendamento/buscar_agendamento.js'
+import { buscarMedicos,buscarMedico } from './DAO/medico/buscar_medico.js'
+import {  buscarTabelas,buscarTabela } from './DAO/tabela/buscar_tabela.js'
+import { buscarConsultas,buscarConsulta } from './DAO/consulta/buscar_consulta.js';
 const app = express()
 app.use(express.json())
 

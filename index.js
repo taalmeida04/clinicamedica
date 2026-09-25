@@ -13,11 +13,8 @@ app.get('/ola', (req, res) => {
     res.json({ mensagem: 'Ola mundo ' })
 })
 
-app.get('/paciente', async (req, res) => {
-    let paciente = await buscarPacientes()
 
-    res.json(paciente)
-})
+
 //especialidades
 app.get('/especialidade', async (req, res) => {
 
@@ -55,7 +52,14 @@ app.get("/consulta_Tabelas", async (req, res) => {
     let tabela = await buscarTabelas();
     res.json(tabela);
 });
+ //inserir cliente
+app.post('/paciente',async (req,res) => {
+    let {nome, endereco, telefone, doencasPrevias, remedioDeUsoContinuo}= req.body
+    let infos = [nome, endereco, telefone, doencasPrevias, remedioDeUsoContinuo]
 
+    let resp = await incluirPaciente(infos)
+    res.send(resp)
+});
 // Inicialização do Servidor
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000')
